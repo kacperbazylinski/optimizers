@@ -79,21 +79,20 @@ def update_w_and_b(weigth, bias,
 
 
 class LinearRegression:
-    LEARNING_RATE = 0.01
+    """
+    Machine Learning model, linear regression
+    """
     GRADIENTS_HISTORY = list()
     LOSS_HISTORY = list()
     W = 0
     b = 0
 
-    def __init__(self, learning_rate=LEARNING_RATE):
+    def __init__(self, learning_rate=0.01):
         self.learning_rate = learning_rate
 
     def predict(self, X):
         """
         Makes prediction for regression
-        :param W: Weights
-        :param bias: bias value fo machine
-        :type bias: int, float
         :param X: feature matrix of samples
         :type X: np.nd.array
         :return: np.dot(W, X.T) + bias
@@ -112,7 +111,7 @@ class LinearRegression:
         :return: weight, bias
         """
         self.W = init_weights(X)
-        self.b = init_bias(X)
+        self.b = init_bias()
 
         if method == 'bach_gd':
             for _ in range(0, iteration):

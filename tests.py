@@ -4,7 +4,7 @@ import numpy as np
 a = np.array([[0, 3, 5, 7, 9]])
 b = np.array([[0, 5, 8, 3, 4]])
 
-X = np.random.rand(5, 100)
+X = np.random.rand(5, 50)
 # print(utils.mse_loss(a, b))
 #
 # th_gr, bias_gr = utils.calc_gradient_descent(a, b, X)
@@ -15,5 +15,7 @@ X = np.random.rand(5, 100)
 # print(utils.init_bias(X))
 
 model = utils.LinearRegression()
-model.fit(X, a)
+model.fit(X, a, iteration=1000)
 print(model.LOSS_HISTORY)
+a_pred = model.predict(X)
+print(a_pred)
